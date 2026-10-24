@@ -11,6 +11,19 @@ describe('GET /health', () => {
   });
 });
 
+describe('JSON request parsing', () => {
+  it('returns 400 for malformed JSON', async () => {
+    const app = createApp();
+    const res = await request(app)
+      .post('/api/learners/1/progress')
+      .set('Content-Type', 'application/json')
+      .send('{"broken":');
+
+    expect(res.status).toBe(400);
+    expect(res.body.error).toMatch(/Malformed JSON request body/i);
+  });
+});
+
 describe('GET /api/learners/:learnerId/progress', () => {
   const app = createApp();
 

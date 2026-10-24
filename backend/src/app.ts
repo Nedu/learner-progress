@@ -46,9 +46,22 @@ export function createApp() {
       return;
     }
 
+    if (isMalformedJsonError(err)) {
+      res.status(400).json({ error: 'Malformed JSON request body' });
+      return;
+    }
+
     console.error(err);
     res.status(500).json({ error: 'Internal server error' });
   });
 
   return app;
+}
+
+function isMalformedJsonError(error: unknown): error is SyntaxError & { type: string } {
+  return (
+    error instanceof SyntaxError &&
+    'type' in error &&
+    error.type === 'entity.parse.failed'
+  );
 }
