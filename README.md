@@ -13,17 +13,19 @@ An MVP to validate whether a dedicated "my progress" view improves learner re-en
 
 ## How to Run
 
-1. **Backend:**
+1. Clone this repo
 
-In a terminal:
+**Backend:**
+
+-  In a terminal:
    ```bash
    cd backend && npm install && npm test && npm run dev
    ```
    Navigate to http://localhost:3001/health to ensure that API is up and running.
 
-2. **Frontend:**
+**Frontend:**
 
-In a separate terminal:
+-  In a separate terminal:
    ```bash
    cd frontend-react && npm install && npm run dev
    ```

@@ -52,3 +52,4 @@ On each successful progress-list load, the frontend writes a structured `course_
 - Measure the 7-day course-resume rate by joining progress-view events with course activity, then run a small controlled pilot against a comparable baseline.
 - Add a clear resume destination for each course so learners can act on the progress list and we can measure successful returns.
 - Add filtering for quick-wins courses.
+- Add a different card design for error state as well as no courses state.
