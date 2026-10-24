@@ -98,4 +98,16 @@ describe('GET /api/learners/:learnerId/progress', () => {
     expect(res.body.courses).toHaveLength(1);
     expect(res.body.courses[0].courseId).toBe('course-safety');
   });
+  it('flags courses with exactly one incomplete lesson as quick wins', async () => {
+    const res = await request(app).get('/api/learners/1/progress');
+    const onboarding = res.body.courses.find(
+      (c: { courseId: string }) => c.courseId === 'course-onboarding',
+    );
+    const compliance = res.body.courses.find(
+      (c: { courseId: string }) => c.courseId === 'course-compliance',
+    );
+
+    expect(compliance.isQuickWin).toBe(true);
+    expect(onboarding.isQuickWin).toBe(false);
+  });
 });

@@ -15,6 +15,7 @@ export const STALE_DAYS = 30;
  * - Map lastActivityAt through to the response
  * - Set isStale: true when last activity is older than STALE_DAYS
  * - Sort by lastActivityAt descending
+ * - Flag courses with exactly one incomplete lesson as quick wins
  *
  * Helper functions below are provided — use, extend, or replace them.
  */
@@ -29,6 +30,8 @@ export function getInProgressCourses(learnerId: number): CourseProgress[] {
     .map(toCourseProgress)
 }
 
+export function isQuickWin(enrollment: CourseEnrollment): boolean {
+  return enrollment.lessons.filter((lesson) => !lesson.completed).length === 1;
 }
 
 export function computeCompletionPercentage(enrollment: CourseEnrollment): number {
@@ -54,5 +57,6 @@ function toCourseProgress(enrollment: CourseEnrollment): CourseProgress {
     lastActivityAt: enrollment.lastActivityAt,
     status: 'in_progress',
     isStale: isEnrollmentStale(enrollment.lastActivityAt),
+    isQuickWin: isQuickWin(enrollment)
   };
 }

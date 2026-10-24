@@ -27,6 +27,8 @@ export interface CourseProgress {
   status: 'in_progress';
   /** Set when last activity is older than the stale threshold (see progressService). */
   isStale?: boolean;
+  /** True when exactly one lesson remains, highlighting a potential quick win. */
+  isQuickWin: boolean;
 }
 
 export interface LearnerProgressResponse {
