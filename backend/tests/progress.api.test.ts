@@ -111,6 +111,13 @@ describe('GET /api/learners/:learnerId/progress', () => {
     expect(res.body.courses).toHaveLength(1);
     expect(res.body.courses[0].courseId).toBe('course-safety');
   });
+
+  it('returns an empty in-progress list for learner 3', async () => {
+    const res = await request(app).get('/api/learners/3/progress');
+    expect(res.status).toBe(200);
+    expect(res.body).toEqual({ learnerId: 3, courses: [] });
+  });
+
   it('flags courses with exactly one incomplete lesson as quick wins', async () => {
     const res = await request(app).get('/api/learners/1/progress');
     const onboarding = res.body.courses.find(

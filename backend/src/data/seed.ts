@@ -92,6 +92,22 @@ export const enrollments: CourseEnrollment[] = [
     lastActivityAt: daysAgo(106),
     status: 'completed',
   },
+  {
+    courseId: 'course-completed-empty-demo',
+    title: 'Completed Course (empty-state demo)',
+    learnerId: 3,
+    lessons: [{ id: 'l1', title: 'Course complete', completed: true }],
+    lastActivityAt: daysAgo(12),
+    status: 'completed',
+  },
+  {
+    courseId: 'course-not-started-empty-demo',
+    title: 'Not Started Course (empty-state demo)',
+    learnerId: 3,
+    lessons: [{ id: 'l1', title: 'Course intro', completed: false }],
+    lastActivityAt: daysAgo(12),
+    status: 'not_started',
+  },
 ];
 
 export const knownLearnerIds = new Set(
