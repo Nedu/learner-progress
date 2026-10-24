@@ -5,6 +5,7 @@ export type CourseProgress = {
   lastActivityAt: string;
   status: string;
   isStale?: boolean;
+  isQuickWin: boolean;
 };
 
 export type LearnerProgressResponse = {

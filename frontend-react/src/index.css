@@ -30,6 +30,67 @@ h1 {
   color: #57534e;
 }
 
+.learner-picker {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0 0 1.25rem;
+  color: #57534e;
+  font-size: 0.9rem;
+}
+
+.learner-picker select {
+  border: 1px solid #d6cec5;
+  border-radius: 6px;
+  padding: 0.45rem 0.65rem;
+  background: #fffcf8;
+  color: #1c1917;
+  font: inherit;
+}
+
+.state-card {
+  background: #fffcf8;
+  border: 1px solid #e7e0d8;
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+  color: #57534e;
+}
+
+.state-card h2 {
+  margin: 0 0 0.4rem;
+  color: #1c1917;
+  font-size: 1.05rem;
+}
+
+.state-card p {
+  margin: 0;
+}
+
+.error-state {
+  border-color: #fecaca;
+}
+
+.error-state button {
+  margin-top: 1rem;
+  border: 0;
+  border-radius: 6px;
+  padding: 0.6rem 0.85rem;
+  background: #c2410c;
+  color: white;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.error-state button:hover {
+  background: #9a3412;
+}
+
+.error-state button:focus-visible {
+  outline: 3px solid #fdba74;
+  outline-offset: 2px;
+}
+
 .course-list {
   list-style: none;
   padding: 0;
@@ -39,30 +100,3 @@ h1 {
   gap: 0.75rem;
 }
 
-.course {
-  background: #fffcf8;
-  border: 1px solid #e7e0d8;
-  border-radius: 10px;
-  padding: 1rem 1.1rem;
-}
-
-.course h2 {
-  margin: 0 0 0.35rem;
-  font-size: 1.05rem;
-}
-
-.meta {
-  margin: 0;
-  color: #57534e;
-  font-size: 0.88rem;
-}
-
-.badge {
-  display: inline-block;
-  margin-top: 0.65rem;
-  font-size: 0.72rem;
-  font-weight: 650;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: #a16207;
-}
